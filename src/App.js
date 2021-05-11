@@ -1,6 +1,7 @@
 import "./styles.css";
 import Particles from "react-particles-js";
-import banner from "./banner.png";
+import banner from "./img/banner.png";
+import odum from "./img/odum.png";
 
 function App() {
   return (
@@ -38,7 +39,9 @@ function App() {
         </header>
 
         <div className="subsubtitleRow">Overview</div>
-        <div className="content">this is content</div>
+        <div className="content">
+          <img className="odum" src={odum} alt="odum" />
+        </div>
 
         <div className="subsubtitleRow">Derivation</div>
         <div className="content">this is content</div>

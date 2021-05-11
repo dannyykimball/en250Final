@@ -8,11 +8,19 @@ body {
   background-color: #143642;
 }
 
+.part {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -100;
+}
+
 header {
   width: 100%;
   padding-top: 22px;
 
-  background-color: #dad2d8;
+  background-color: #307f9c;
   font-size: 40pt;
   text-align: center;
 }
@@ -46,14 +54,11 @@ header {
 .content {
   margin: auto;
   margin-left: 40px;
-  background-color: #dad2d8;
+  background-color: #307f9c;
   width: 90vw;
   padding: 20px;
 }
-.part {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -100;
+
+.odum {
+  max-width: 500px;
 }
