@@ -1,21 +1,53 @@
 import "./sim.css";
-import hawkimg from "./img/hawk.jpg";
-import snakeimg from "./img/snake.jpg";
-import bunnyimg from "./img/bunny.jpg";
-import grassimg from "./img/grass.jpg";
 import { useState, useEffect } from "react";
 
 export default function Sim() {
-  const [hawk, setHawk] = useState();
-  const [snake, setSnake] = useState();
-  const [bunny, setBunny] = useState();
-  const [grass, setGrass] = useState();
+  const [energy, setEnergy] = useState([6000, 1, 1, 1]);
+
   useEffect(() => {
-    setHawk(4);
-    setSnake(25);
-    setBunny(400);
-    setGrass(2000);
+    setInterval(function () {
+      for (let i = 1; i < energy.length; i++) {
+        input(i);
+      }
+    }, 100);
   }, []);
+
+  function input(num) {
+    let list = energy;
+    let cur = energy[num];
+    let desired = energy[num - 1];
+    if (desired / 10 > cur) {
+      if (Math.floor(Math.random() * 3) >= 1) {
+        cur += desired * 0.002;
+      } else {
+        cur -= desired * 0.001;
+      }
+    } else {
+      if (Math.floor(Math.random() * 3) < 1) {
+        cur += desired * 0.001;
+      } else {
+        cur -= desired * 0.002;
+      }
+    }
+    if (cur < 0) {
+      cur = 0;
+    }
+    energy[num] = cur;
+
+    setEnergy(list);
+  }
+
+  function handleChange(event) {
+    event.preventDefault();
+    console.log(event.target.value);
+
+    let temp = energy;
+    console.log(energy);
+    temp[0] = parseInt(event.target.value);
+
+    setEnergy(temp);
+    console.log(energy);
+  }
 
   return (
     <div>
@@ -25,23 +57,13 @@ export default function Sim() {
           <a href="/">{`<-`} Back</a> Miles Rosenberg & Daniel Kimball{" "}
         </div>
       </header>
-
       <div className="simmmer">
-        <div className="animal">
-          <img className="animalimg" src={hawkimg} alt="hawk" />
-          {hawk}
-        </div>
-        <div className="animal">
-          <img className="animalimg" src={snakeimg} alt="snake" />
-          {snake}
-        </div>
-        <div className="animal">
-          <img className="animalimg" src={bunnyimg} alt="bunny" />
-          {bunny}
-        </div>
-        <div className="animal">
-          <img className="animalimg" src={grassimg} alt="grass" />
-          {grass}
+        <div>Tertiary Consumer 2 Energy Level: {Math.floor(energy[3])}</div>
+        <div>Tertiary Consumer 1 Energy Level: {Math.floor(energy[2])}</div>
+        <div>Primary Consumer Energy Level: {Math.floor(energy[1])}</div>
+        <div>
+          Producer Energy Level: {Math.floor(energy[0])}
+          <input type="text" onChange={handleChange} />
         </div>
       </div>
     </div>
