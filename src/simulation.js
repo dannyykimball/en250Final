@@ -161,9 +161,35 @@ export default function Sim() {
             },
             vAxis: {
               title: "Energy Level (kj)",
+              scaleType: "log",
             },
             series: {
-              1: { curveType: "function" },
+              0: { color: "green" },
+              1: { color: "#9b870c", curveType: "function" },
+              2: { color: "blue" },
+              3: { color: "red" },
+            },
+          }}
+          rootProps={{ "data-testid": "2" }}
+        />
+        <Chart
+          width={"600px"}
+          height={"400px"}
+          chartType="LineChart"
+          loader={<div>Loading Chart</div>}
+          data={dataState}
+          options={{
+            hAxis: {
+              title: "Time (days)",
+            },
+            vAxis: {
+              title: "Energy Level (kj)",
+            },
+            series: {
+              0: { color: "green" },
+              1: { color: "#9b870c", curveType: "function" },
+              2: { color: "blue" },
+              3: { color: "red" },
             },
           }}
           rootProps={{ "data-testid": "2" }}
