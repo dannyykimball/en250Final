@@ -68,7 +68,7 @@ export default function Sim() {
 
     let tempdata = dataState;
 
-    console.log(tempdata);
+    // console.log(tempdata);
     tempdata.push([counter, temp.first, temp.second, temp.third, temp.fourth]);
     console.log(tempdata);
     setDataState(tempdata);
