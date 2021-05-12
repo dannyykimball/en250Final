@@ -2,6 +2,8 @@
 
 Miles Rosenberg & Daniel Kimball
 
-open a terminal/cmdconsole
-cd en250final
-npm start
+1. open a terminal/cmdconsole
+
+2. cd en250final
+
+3. npm start
