@@ -165,7 +165,7 @@ export default function Sim() {
             },
             series: {
               0: { color: "green" },
-              1: { color: "#9b870c", curveType: "function" },
+              1: { color: "#9b870c" },
               2: { color: "blue" },
               3: { color: "red" },
             },
@@ -187,7 +187,7 @@ export default function Sim() {
             },
             series: {
               0: { color: "green" },
-              1: { color: "#9b870c", curveType: "function" },
+              1: { color: "#9b870c" },
               2: { color: "blue" },
               3: { color: "red" },
             },
