@@ -6,6 +6,7 @@ import energy from "./img/energy.jpeg";
 import pyramid from "./img/pyramid.jpeg";
 import temp from "./img/temp.png";
 import hist from "./img/hist.png";
+import wow from "./img/wow.png";
 
 function App() {
   return (
@@ -99,6 +100,20 @@ function App() {
           </div>
         </div>
 
+        <div className="subsubtitleRow">Applying the Model</div>
+        <div className="content">
+          <div className="contextText">
+            Similar to the graph on the right, we wanted to create a live
+            simulation when there was a set energy level of producers in an
+            environment.
+            <br />
+            <br />
+            We wanted to keep track of energy loss in real time across trophic
+            levels and update them as they adjusted to their next environment.
+          </div>
+          <img className="odum" src={wow} alt="wow" />
+        </div>
+
         <div className="subsubtitleRow">Simulation</div>
         <div className="content">
           <div className="contextText">
@@ -117,7 +132,8 @@ function App() {
             https://www.notesonzoology.com/ecology/top-3-models-of-energy-flow-in-a-community-ecology/4220
             <br />
             https://en.wikipedia.org/wiki/Energy_flow_(ecology) <br />
-            https://www.britannica.com/science/trophic-pyramid
+            https://www.britannica.com/science/trophic-pyramid <br />
+            https://courses.lumenlearning.com/wm-biology2/chapter/energy-flow-through-ecosystems/
           </div>
         </div>
       </div>

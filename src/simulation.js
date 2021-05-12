@@ -4,6 +4,7 @@ import first from "./img/1.jpg";
 import second from "./img/2.jpg";
 import third from "./img/3.jpg";
 import fourth from "./img/4.jpg";
+import Chart from "react-google-charts";
 
 export default function Sim() {
   let init = {
@@ -19,6 +20,16 @@ export default function Sim() {
   const [energy, setEnergy] = useState(init);
   const [form, setForm] = useState();
   const [asdf, setasdf] = useState();
+  const [dataState, setDataState] = useState([
+    [
+      "x",
+      "Producer",
+      "Primary Consumer",
+      "Tertiary Consumer 1",
+      "Tertiary Consumer 2",
+    ],
+    [0, 0, 0, 0, 0],
+  ]);
 
   useEffect(() => {
     setInterval(function () {
@@ -54,6 +65,13 @@ export default function Sim() {
     temp.loss2 = temp.second - temp.third;
     temp.loss3 = temp.third - temp.fourth;
     temp.loss = temp.loss1 + temp.loss2 + temp.loss3;
+
+    let tempdata = dataState;
+
+    console.log(tempdata);
+    tempdata.push([counter, temp.first, temp.second, temp.third, temp.fourth]);
+    console.log(tempdata);
+    setDataState(tempdata);
 
     setEnergy(temp);
     setasdf(counter + 1);
@@ -131,6 +149,25 @@ export default function Sim() {
             <input type="submit" value="Submit" onClick={handleSubmit} />
           </form>
         </div>
+        <Chart
+          width={"600px"}
+          height={"400px"}
+          chartType="LineChart"
+          loader={<div>Loading Chart</div>}
+          data={dataState}
+          options={{
+            hAxis: {
+              title: "Time",
+            },
+            vAxis: {
+              title: "Popularity",
+            },
+            series: {
+              1: { curveType: "function" },
+            },
+          }}
+          rootProps={{ "data-testid": "2" }}
+        />
       </div>
     </div>
   );
