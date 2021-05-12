@@ -5,6 +5,7 @@ import odum from "./img/odum.png";
 import energy from "./img/energy.jpeg";
 import pyramid from "./img/pyramid.jpeg";
 import temp from "./img/temp.png";
+import hist from "./img/hist.png";
 
 function App() {
   return (
@@ -51,6 +52,23 @@ function App() {
             <br />
             As the more trophic levels are added to an ecosystem, more energy is
             loss overall from the producers to the apex predators.
+          </div>
+        </div>
+
+        <div className="subsubtitleRow">History</div>
+        <div className="content">
+          <img className="odum" src={hist} alt="odum" />
+          <div className="contextText">
+            The early concepts Energy Flow Model is believed to have come around
+            during the enlightenment.
+            <br />
+            <br />
+            Sergei Podolinsky was a Russian physician who was an early pioneer
+            of the Energy Flow Model.
+            <br />
+            <br />
+            The Energy Flow Model was further developed by Vladmir Stanchisky,
+            Alfred J. Lotka, Raymond Lindeman, and G. Evelyn Hutchinson.
           </div>
         </div>
 
