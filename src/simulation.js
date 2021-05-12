@@ -157,10 +157,10 @@ export default function Sim() {
           data={dataState}
           options={{
             hAxis: {
-              title: "Time",
+              title: "Time (days)",
             },
             vAxis: {
-              title: "Popularity",
+              title: "Energy Level (kj)",
             },
             series: {
               1: { curveType: "function" },
