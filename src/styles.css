@@ -56,9 +56,16 @@ header {
   margin-left: 40px;
   background-color: #307f9c;
   width: 90vw;
+  display: flex;
   padding: 20px;
 }
 
 .odum {
   max-width: 500px;
+}
+
+.contextText {
+  background-color: white;
+  font-size: 20pt;
+  padding: 20px;
 }
