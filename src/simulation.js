@@ -28,7 +28,7 @@ export default function Sim() {
       "Tertiary Consumer 1",
       "Tertiary Consumer 2",
     ],
-    [0, 0, 0, 0, 0],
+    [0, 5000, 0, 0, 0],
   ]);
 
   useEffect(() => {
