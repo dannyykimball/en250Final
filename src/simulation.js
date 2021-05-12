@@ -11,6 +11,10 @@ export default function Sim() {
     second: 0,
     third: 0,
     fourth: 0,
+    loss1: 0,
+    loss2: 0,
+    loss3: 0,
+    loss: 0,
   };
   const [energy, setEnergy] = useState(init);
   const [form, setForm] = useState();
@@ -45,6 +49,12 @@ export default function Sim() {
     if (temp.fourth < 0) {
       temp.fourth = 0;
     }
+
+    temp.loss1 = temp.first - temp.second;
+    temp.loss2 = temp.second - temp.third;
+    temp.loss3 = temp.third - temp.fourth;
+    temp.loss = temp.loss1 + temp.loss2 + temp.loss3;
+
     setEnergy(temp);
     setasdf(counter + 1);
     counter++;
@@ -73,26 +83,47 @@ export default function Sim() {
         </div>
       </header>
       <div className="simmmer">
-        <img classname="four" src={fourth} alt="React Logo" />
+        <div key={"5" + energy.loss}>
+          Total Energy Loss in the System:{" "}
+          <input
+            readOnly
+            value={
+              Math.floor(energy.loss1) +
+              " + " +
+              Math.floor(energy.loss2) +
+              " + " +
+              Math.floor(energy.loss3) +
+              " = " +
+              Math.floor(energy.loss)
+            }
+          />{" "}
+          kj
+        </div>
+
         <div key={"4" + energy.fourth}>
           Tertiary Consumer 2 Energy Level:{" "}
-          <input value={Math.floor(energy.fourth)} /> kj
+          <input readOnly value={Math.floor(energy.fourth)} /> kj
         </div>
-        <img classname="three" src={third} alt="React Logo" />
+        <img src={fourth} alt="React Logo" />
+
         <div key={"3" + energy.third}>
           Tertiary Consumer 1 Energy Level:{" "}
-          <input value={Math.floor(energy.third)} /> kj
+          <input readOnly value={Math.floor(energy.third)} /> kj
         </div>
-        <img classname="two" src={second} alt="React Logo" />
+        <img src={third} alt="React Logo" />
+
         <div key={"2" + energy.second}>
           Primary Consumer Energy Level:{" "}
-          <input value={Math.floor(energy.second)} /> kj
+          <input readOnly value={Math.floor(energy.second)} /> kj
         </div>
-        <div classname="one222">
-          <img src={first} alt="React Logo" />
-        </div>
+        <img src={second} alt="React Logo" />
+
         <div key={"1" + energy.first}>
-          Producer Energy Level: <input value={Math.floor(energy.first)} /> kj
+          Producer Energy Level:{" "}
+          <input readOnly value={Math.floor(energy.first)} /> kj
+          <img src={first} alt="React Logo" />
+          <br />
+          New Energy Value
           <form>
             <label>
               <input type="text" onChange={handleChange} />
