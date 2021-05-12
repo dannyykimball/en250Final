@@ -5,6 +5,7 @@
 }
 
 .simmmer {
+  text-align: center;
   margin: 200px;
   margin-top: 80px;
 
@@ -13,10 +14,50 @@
   background-color: white;
 }
 
-.animal {
+.one222 {
   /* background-color: blue; */
+  height: 100px;
+  padding: 100px;
+  background-color: red;
+  position: absolute;
+  left: 300px;
+}
+
+.two {
+  /* background-color: blue; */
+  height: 100px;
+  position: absolute;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.three {
+  /* background-color: blue; */
+  height: 100px;
+  display: block;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.four {
+  /* background-color: blue; */
+  height: 100px;
+  position: absolute;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .animalimg {
   max-width: 180px;
+}
+
+input {
+  font-size: 20pt;
+}
+
+.img {
+  margin: 20px;
 }

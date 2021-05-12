@@ -1,52 +1,67 @@
 import "./sim.css";
 import { useState, useEffect } from "react";
+import first from "./img/1.jpg";
+import second from "./img/2.jpg";
+import third from "./img/3.jpg";
+import fourth from "./img/4.jpg";
 
 export default function Sim() {
-  const [energy, setEnergy] = useState([6000, 1, 1, 1]);
+  let init = {
+    first: 5000,
+    second: 0,
+    third: 0,
+    fourth: 0,
+  };
+  const [energy, setEnergy] = useState(init);
+  const [form, setForm] = useState();
+  const [asdf, setasdf] = useState();
 
   useEffect(() => {
     setInterval(function () {
-      for (let i = 1; i < energy.length; i++) {
-        input(i);
-      }
-    }, 100);
+      dayPass();
+    }, 200);
   }, []);
 
-  function input(num) {
-    let list = energy;
-    let cur = energy[num];
-    let desired = energy[num - 1];
-    if (desired / 10 > cur) {
-      if (Math.floor(Math.random() * 3) >= 1) {
-        cur += desired * 0.002;
-      } else {
-        cur -= desired * 0.001;
-      }
-    } else {
-      if (Math.floor(Math.random() * 3) < 1) {
-        cur += desired * 0.001;
-      } else {
-        cur -= desired * 0.002;
-      }
-    }
-    if (cur < 0) {
-      cur = 0;
-    }
-    energy[num] = cur;
+  let counter = 0;
 
-    setEnergy(list);
+  function dayPass() {
+    console.log("day passed");
+    let temp = energy;
+    temp.second +=
+      (energy.first / 10 - temp.second) * 0.1 +
+      temp.second * (Math.random() * 2 - 1) * 0.01;
+    if (temp.second < 0) {
+      temp.second = 0;
+    }
+    temp.third +=
+      (energy.second / 10 - temp.third) * 0.1 +
+      temp.third * (Math.random() * 2 - 1) * 0.01;
+    if (temp.third < 0) {
+      temp.third = 0;
+    }
+    temp.fourth +=
+      (energy.third / 10 - temp.fourth) * 0.1 +
+      temp.fourth * (Math.random() * 2 - 1) * 0.01;
+    if (temp.fourth < 0) {
+      temp.fourth = 0;
+    }
+    setEnergy(temp);
+    setasdf(counter + 1);
+    counter++;
+    console.log(energy);
   }
 
   function handleChange(event) {
     event.preventDefault();
-    console.log(event.target.value);
+    setForm(event.target.value);
+  }
 
+  function handleSubmit(event) {
+    event.preventDefault();
     let temp = energy;
-    console.log(energy);
-    temp[0] = parseInt(event.target.value);
-
+    temp.first = parseInt(form);
+    console.log(temp);
     setEnergy(temp);
-    console.log(energy);
   }
 
   return (
@@ -58,12 +73,32 @@ export default function Sim() {
         </div>
       </header>
       <div className="simmmer">
-        <div>Tertiary Consumer 2 Energy Level: {Math.floor(energy[3])}</div>
-        <div>Tertiary Consumer 1 Energy Level: {Math.floor(energy[2])}</div>
-        <div>Primary Consumer Energy Level: {Math.floor(energy[1])}</div>
-        <div>
-          Producer Energy Level: {Math.floor(energy[0])}
-          <input type="text" onChange={handleChange} />
+        <img classname="four" src={fourth} alt="React Logo" />
+        <div key={"4" + energy.fourth}>
+          Tertiary Consumer 2 Energy Level:{" "}
+          <input value={Math.floor(energy.fourth)} /> kj
+        </div>
+        <img classname="three" src={third} alt="React Logo" />
+        <div key={"3" + energy.third}>
+          Tertiary Consumer 1 Energy Level:{" "}
+          <input value={Math.floor(energy.third)} /> kj
+        </div>
+        <img classname="two" src={second} alt="React Logo" />
+        <div key={"2" + energy.second}>
+          Primary Consumer Energy Level:{" "}
+          <input value={Math.floor(energy.second)} /> kj
+        </div>
+        <div classname="one222">
+          <img src={first} alt="React Logo" />
+        </div>
+        <div key={"1" + energy.first}>
+          Producer Energy Level: <input value={Math.floor(energy.first)} /> kj
+          <form>
+            <label>
+              <input type="text" onChange={handleChange} />
+            </label>
+            <input type="submit" value="Submit" onClick={handleSubmit} />
+          </form>
         </div>
       </div>
     </div>
