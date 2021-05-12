@@ -3,6 +3,8 @@ import Particles from "react-particles-js";
 import banner from "./img/banner.png";
 import odum from "./img/odum.png";
 import energy from "./img/energy.jpeg";
+import pyramid from "./img/pyramid.jpeg";
+import temp from "./img/temp.png";
 
 function App() {
   return (
@@ -68,27 +70,27 @@ function App() {
 
         <div className="subsubtitleRow">Applications</div>
         <div className="content">
-          <img className="odum" src={odum} alt="odum" />
+          <img className="odum" src={pyramid} alt="pyramid" />
           <div className="contextText">
-            The purpose of the energy flow model is to link the transfers of
-            energy in an ecosystem to show both the inputs and losses of energy.
+            Because of the energy loss between levels, it is often portrayed as
+            an energy pyramid.
             <br />
             <br />
-            As the more trophic levels are added to an ecosystem, more energy is
-            loss overall from the producers to the apex predators.
+            The tertiary consumers are always the fewest in number because not
+            enough energy can be transferred to sustain a larger population.
           </div>
         </div>
 
         <div className="subsubtitleRow">Simulation</div>
         <div className="content">
           <div className="contextText">
-            The energy flow model is most commonly seen as a food web.
+            Our simulation for this final takes energy levels in a food pyramid
+            and updates them with changes in the ecosystem.
             <br />
             <br />
-            Within a food web, the largest energy source is always the sun which
-            passes onto producers {`>`} consumers {`>`} tertiary consumers.
+            <a href="/simulation">Click here to be taken to the simulation</a>
           </div>
-          <img className="odum" src={odum} alt="odum" />
+          <img className="odum" src={temp} alt="temp" />
         </div>
 
         <div className="subsubtitleRow">Sources</div>

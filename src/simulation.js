@@ -15,8 +15,11 @@ export default function Sim() {
     <div>
       <header>
         <div>Energy Flow Simulation</div>
-        <div className="subtitleRow">Miles Rosenberg & Daniel Kimball</div>
+        <div className="subtitleRow">
+          <a href="/">{`<-`} Back</a> Miles Rosenberg & Daniel Kimball{" "}
+        </div>
       </header>
+
       <div className="simmmer">
         <div className="animal">
           <img className="animalimg" src={hawkimg} alt="hawk" />
